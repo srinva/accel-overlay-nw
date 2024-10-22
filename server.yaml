@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iperf-server
+  labels:
+    app: iperf
+spec:
+  containers:
+    - name: iperf-server
+      image: networkstatic/iperf3
+      args: ["-s"]
+      ports:
+        - containerPort: 5201
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "100m"
+        limits:
+          memory: "128Mi"
+          cpu: "200m"
