@@ -1,0 +1,22 @@
+{{- $i := range .Values.replicas -}}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iperf-client
+  labels:
+    app: iperf
+spec:
+  restartPolicy: Never
+  containers:
+    - name: iperf-client
+      image: networkstatic/iperf3
+      args: ["--client", "192.168.196.65", "--time", "30"]
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "100m"
+        limits:
+          memory: "128Mi"
+          cpu: "200m"
+---
+{{- end -}}
