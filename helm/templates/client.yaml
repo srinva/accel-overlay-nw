@@ -1,16 +1,17 @@
-{{- $i := range .Values.replicas -}}
+{{- $replicas := int .Values.replicas -}}
+{{- range $i := until $replicas -}}
 apiVersion: v1
 kind: Pod
 metadata:
-  name: iperf-client
+  name: iperf-client-{{ add $i 1 }}
   labels:
-    app: iperf
+    app: iperf-client-{{ add $i 1 }}
 spec:
   restartPolicy: Never
   containers:
     - name: iperf-client
       image: networkstatic/iperf3
-      args: ["--client", "192.168.196.65", "--time", "30"]
+      args: ["--client", "iperf-server.default.iperf-service-{{ add $i 1 }}.svc.cluster.local", "--time", "30"]
       resources:
         requests:
           memory: "64Mi"

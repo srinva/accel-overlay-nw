@@ -1,17 +1,17 @@
-{{- $i := range .Values.replicas -}}
+{{- $replicas := int .Values.replicas -}}
+{{- range $i := until $replicas -}}
 apiVersion: v1
 kind: Pod
 metadata:
-  name: iperf-server
+  name: iperf-server-{{ add $i 1 }}
   labels:
-    app: iperf-{{ $i }}
+    app: iperf-server-{{ add $i 1 }}
 spec:
+  restartPolicy: Never
   containers:
-    - name: iperf-server-{{ $i }}
+    - name: iperf-server
       image: networkstatic/iperf3
-      args: ["-s"]
-      ports:
-        - containerPort: 5201
+      args: ["--server"]
       resources:
         requests:
           memory: "64Mi"
@@ -23,14 +23,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: iperf-service-{{ $i }}
+  name: iperf-service-{{ add $i 1 }}
   labels:
-    app: iperf-{{ $i }}
+    app: iperf-{{ add $i 1 }}
 spec:
   ports:
     - port: 5201
       targetPort: 5201
   selector:
-    app: iperf-{{ $i }}
+    app: iperf-{{ add $i 1 }}
   type: ClusterIP
 {{- end -}}
