@@ -11,7 +11,7 @@ spec:
   containers:
     - name: iperf-client
       image: networkstatic/iperf3
-      args: ["--client", "iperf-server.default.iperf-service-{{ add $i 1 }}.svc.cluster.local", "--time", "30"]
+      args: ["--client", "iperf-service-{{ add $i 1 }}.default.svc.cluster.local", "--time", "30"]
       resources:
         requests:
           memory: "64Mi"
