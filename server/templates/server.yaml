@@ -25,12 +25,12 @@ kind: Service
 metadata:
   name: iperf-service-{{ add $i 1 }}
   labels:
-    app: iperf-{{ add $i 1 }}
+    app: iperf-service-{{ add $i 1 }}
 spec:
   ports:
     - port: 5201
       targetPort: 5201
   selector:
-    app: iperf-{{ add $i 1 }}
+    app: iperf-server-{{ add $i 1 }}
   type: ClusterIP
 {{- end -}}
