@@ -8,14 +8,14 @@ metadata:
     app: iperf-client-{{ add $i 1 }}
 spec:
   affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: iperf
-                  operator: In
-                  values:
-                    - server
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: iperf
+                operator: In
+                values:
+                  - server
   restartPolicy: Never
   containers:
     - name: iperf-client
