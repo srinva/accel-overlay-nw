@@ -33,4 +33,5 @@ spec:
   selector:
     app: iperf-server-{{ add $i 1 }}
   type: ClusterIP
+---
 {{- end -}}
