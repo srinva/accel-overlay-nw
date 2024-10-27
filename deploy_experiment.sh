@@ -10,3 +10,6 @@ for i in $(seq 1 $replicas); do
   echo "Server $i"
   kubectl logs iperf-server-$i | tail -n 3
 done
+# cleanup
+helm uninstall accel-overlay-nw-client
+helm uninstall accel-overlay-nw-server
