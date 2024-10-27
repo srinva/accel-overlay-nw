@@ -8,8 +8,10 @@ helm upgrade --install accel-overlay-nw-client ./client --set replicas=$replicas
 # kubectl wait --for=condition=complete pod -l type=client --timeout=300s
 sleep 40
 for i in $(seq 1 $replicas); do
-  echo "Server $i"
+  echo "Server $i:"
   kubectl logs iperf-server-$i | tail -n 3
+  echo "Client $i:"
+  kubectl logs iperf-client-$i | tail -n 5 | head -n 2
 done
 # cleanup
 helm uninstall accel-overlay-nw-client
