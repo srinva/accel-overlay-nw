@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 replicas=$1
 helm upgrade --install accel-overlay-nw-server ./server --set replicas=$replicas

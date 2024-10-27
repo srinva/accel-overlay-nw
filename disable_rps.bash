@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # need to enable RPS in both the virtio NIC and VXLAN interface
 disable_rps() {
   local interface=$1
