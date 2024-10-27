@@ -11,5 +11,5 @@ enable_rps() {
 
 cpumask=f
 
-enable_rps eth0 $cpumask
-enable_rps vxlan0 $cpumask
+enable_rps eth1 $cpumask
+enable_rps vxlan.calico $cpumask
