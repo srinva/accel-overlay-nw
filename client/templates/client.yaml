@@ -15,7 +15,7 @@ spec:
               - key: iperf
                 operator: In
                 values:
-                  - server
+                  - client
   restartPolicy: Never
   containers:
     - name: iperf-client
