@@ -6,6 +6,7 @@ metadata:
   name: iperf-server-{{ add $i 1 }}
   labels:
     app: iperf-server-{{ add $i 1 }}
+    type: server
 spec:
   affinity:
     nodeAffinity:

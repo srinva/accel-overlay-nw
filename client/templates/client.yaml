@@ -6,6 +6,7 @@ metadata:
   name: iperf-client-{{ add $i 1 }}
   labels:
     app: iperf-client-{{ add $i 1 }}
+    type: client
 spec:
   affinity:
     nodeAffinity:
