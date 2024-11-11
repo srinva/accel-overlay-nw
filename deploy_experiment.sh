@@ -16,7 +16,7 @@ sleep 20
 ssh $server1 'pkill -SIGINT mpstat'
 # ssh $server2 'pkill -SIGINT mpstat'
 # Save the last 6 lines of mpstat output to log files
-ssh $server1 'tail -n 6 /tmp/mpstat_server1.log' > mpstat_client.log
+ssh $server1 'tail -n 6 /tmp/mpstat_server1.log'
 # ssh $server2 'tail -n 6 /tmp/mpstat_server2.log' > mpstat_server.log
 sleep 15
 for i in $(seq 1 $replicas); do
