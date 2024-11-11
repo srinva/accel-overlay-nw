@@ -9,7 +9,7 @@ enable_rps() {
   done
 }
 
-cpumask=f
+cpumask=7
 
 enable_rps eth1 $cpumask
 enable_rps vxlan.calico $cpumask
