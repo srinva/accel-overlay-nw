@@ -21,7 +21,7 @@ sleep 20
 sleep 15
 for i in $(seq 1 $replicas); do
   # echo "Server $i:"
-  kubectl logs iperf-server-$i | tail -n 3
+  kubectl logs iperf-server-$i | tail -n 3 | awk '{ if ($8 == "Gbits/sec") print $7 * 1000; else if ($8 == "Mbits/sec") print $7; }'
   # echo "Client $i:"
   # kubectl logs iperf-client-$i | tail -n 5 | head -n 2
 done
