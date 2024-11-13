@@ -20,7 +20,8 @@ spec:
   restartPolicy: Never
   containers:
     - name: iperf-server
-      image: networkstatic/iperf3
+      # image: networkstatic/iperf3
+      image: iperf3-server-rps
       args: ["--server"]
       resources:
         requests:

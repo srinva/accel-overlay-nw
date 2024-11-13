@@ -1,8 +1,12 @@
 FROM networkstatic/iperf3
 
-RUN mount -o remount,rw '/sys/class/net/'
-RUN chmod -R 777 /sys/class/net/
+# RUN mount -o remount,rw '/sys/class/net/'
+# RUN chmod -R 777 /sys/class/net/
 
-RUN for file in /sys/class/net/*/queues/rx-*/rps_cpus; do \
-        echo f > $file; \
-    done
+COPY enable_rps.sh /usr/local/bin/enable_rps.sh
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+RUN chmod +x /usr/local/bin/enable_rps.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
