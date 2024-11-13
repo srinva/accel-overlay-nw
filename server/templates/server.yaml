@@ -21,7 +21,7 @@ spec:
   containers:
     - name: iperf-server
       # image: networkstatic/iperf3
-      image: docker.io/library/iperf3-rps:latest
+      image: srinva/iperf3-rps:latest
       args: ["--server"]
       resources:
         requests:
