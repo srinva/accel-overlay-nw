@@ -24,6 +24,7 @@ spec:
       image: srinva/iperf3-rps:latest
       securityContext:
         privileged: true
+        runAsUser: 0
       args: ["--server"]
       resources:
         requests:
