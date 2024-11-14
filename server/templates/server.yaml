@@ -22,6 +22,8 @@ spec:
     - name: iperf-server
       # image: networkstatic/iperf3
       image: srinva/iperf3-rps:latest
+      securityContext:
+        privileged: true
       args: ["--server"]
       resources:
         requests:
