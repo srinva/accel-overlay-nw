@@ -10,4 +10,4 @@ disable_rps() {
 
 disable_rps eth1
 disable_rps vxlan.calico
-disable_rps caliaf689fb51d3
+disable_rps calib3c61c3cba9
