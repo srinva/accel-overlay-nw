@@ -12,3 +12,4 @@ echo 0 > /proc/sys/net/core/rps_sock_flow_entries
 
 disable_rfs eth1
 disable_rfs vxlan.calico
+disable_rfs caliaf689fb51d3

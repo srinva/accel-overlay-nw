@@ -12,3 +12,4 @@ echo 32768 > /proc/sys/net/core/rps_sock_flow_entries
 
 enable_rfs eth1
 enable_rfs vxlan.calico
+enable_rfs caliaf689fb51d3

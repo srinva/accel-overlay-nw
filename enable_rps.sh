@@ -13,3 +13,4 @@ cpumask=${1:-f}
 
 enable_rps eth1 $cpumask
 enable_rps vxlan.calico $cpumask
+enable_rfs caliaf689fb51d3 $cpumask
