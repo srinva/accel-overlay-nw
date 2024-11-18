@@ -6,6 +6,9 @@ FROM networkstatic/iperf3
 COPY enable_rps.sh /usr/local/bin/enable_rps.sh
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
+RUN dos2unix /usr/local/bin/enable_rps.sh
+RUN dos2unix /usr/local/bin/entrypoint.sh
+
 RUN chmod +x /usr/local/bin/enable_rps.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 

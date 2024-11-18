@@ -20,8 +20,8 @@ spec:
   restartPolicy: Never
   containers:
     - name: iperf-server
-      # image: networkstatic/iperf3
-      image: srinva/iperf3-rps:latest
+      image: networkstatic/iperf3
+      # image: srinva/iperf3-rps:latest
       securityContext:
         privileged: true
         runAsUser: 0
