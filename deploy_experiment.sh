@@ -8,8 +8,8 @@ replicas=$1
 helm upgrade --install accel-overlay-nw-server ./server --set replicas=$replicas
 kubectl wait --for=condition=Ready pod -l type=server --timeout=300s
 helm upgrade --install accel-overlay-nw-client ./client --set replicas=$replicas
-kubectl wait --for=condition=complete pod -l type=client --timeout=300s
-sleep 5
+# kubectl wait --for=condition=complete pod -l type=client --timeout=300s
+sleep 7
 ssh $server1 'mpstat -P ALL 1 > /tmp/mpstat_server1.log &'&   # Start mpstat in background
 # ssh $server2 'mpstat -P ALL 1 > /tmp/mpstat_server2.log &'&   # Start mpstat in background
 sleep 20
