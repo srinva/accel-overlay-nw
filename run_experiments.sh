@@ -18,8 +18,8 @@ for i in $(seq 1 $NUM_RUNS); do
   echo "Experiment $i completed."
   sleep 5
   
-  cpu_chart=$(echo "$output" | head -n -1)
-  number=$(echo "$output" | tail -n 1)
+  cpu_chart=$(echo "$output" | head -n -${FIRST_ARG})
+  number=$(echo "$output" | tail -n ${FIRST_ARG})
   
   cpu_charts="${cpu_charts}${cpu_chart}\n\n"
   numbers="${numbers}${number} "
