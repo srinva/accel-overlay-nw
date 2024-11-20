@@ -8,7 +8,10 @@ cpu_charts=""
 numbers=""
 
 for i in $(seq 1 $NUM_RUNS); do
+  echo "Running experiment $i..."
   output=$(./deploy_experiment.sh $FIRST_ARG $SERVER_IP)
+  echo "Experiment $i completed."
+  
   cpu_chart=$(echo "$output" | head -n -1)
   number=$(echo "$output" | tail -n 1)
   
