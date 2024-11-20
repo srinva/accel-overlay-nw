@@ -1,0 +1,36 @@
+           CPU0       CPU1       CPU2       CPU3       
+  1:          0          9          0          0   IO-APIC   1-edge      i8042
+  6:          0          0          0          3   IO-APIC   6-edge      floppy
+  8:          0          0          0          0   IO-APIC   8-edge      rtc0
+  9:          0          0          0          0   IO-APIC   9-fasteoi   acpi
+ 11:          0          0          0          0   IO-APIC  11-fasteoi   virtio3, uhci_hcd:usb1
+ 12:         15          0          0          0   IO-APIC  12-edge      i8042
+ 14:          0          0          0          0   IO-APIC  14-edge      ata_piix
+ 15:          0          0          0          0   IO-APIC  15-edge      ata_piix
+ 24:          0          0          0          0   PCI-MSI 81920-edge      virtio2-config
+ 25:          0          0          0   34390692   PCI-MSI 81921-edge      virtio2-req.0
+ 26:          0          0          0          0   PCI-MSI 49152-edge      virtio0-config
+ 27:    7315819   56700322   13629346       1557   PCI-MSI 49153-edge      virtio0-input.0
+ 28:     228766     269919     629434     143766   PCI-MSI 49154-edge      virtio0-output.0
+ 29:          0          0          0          0   PCI-MSI 65536-edge      virtio1-config
+ 30:          0       1114          0  343068592   PCI-MSI 65537-edge      virtio1-input.0
+ 31:    5113445     104645    2452566       7819   PCI-MSI 65538-edge      virtio1-output.0
+NMI:          0          0          0          0   Non-maskable interrupts
+LOC: 1163232470 1150568623 1204764435 1296995802   Local timer interrupts
+SPU:          0          0          0          0   Spurious interrupts
+PMI:          0          0          0          0   Performance monitoring interrupts
+IWI:          0          0          1         22   IRQ work interrupts
+RTR:          0          0          0          0   APIC ICR read retries
+RES:   14183771   14333964   14514882   14098386   Rescheduling interrupts
+CAL:  629680827  626618287  646223934  608297811   Function call interrupts
+TLB:    6208744    6216090    6179599    6209265   TLB shootdowns
+TRM:          0          0          0          0   Thermal event interrupts
+THR:          0          0          0          0   Threshold APIC interrupts
+DFR:          0          0          0          0   Deferred Error APIC interrupts
+MCE:          0          0          0          0   Machine check exceptions
+MCP:       8904       8904       8904       8904   Machine check polls
+ERR:          0
+MIS:          0
+PIN:          0          0          0          0   Posted-interrupt notification event
+NPI:          0          0          0          0   Nested posted-interrupt event
+PIW:          0          0          0          0   Posted-interrupt wakeup event
