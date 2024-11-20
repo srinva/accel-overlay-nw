@@ -10,6 +10,10 @@ numbers=""
 for i in $(seq 1 $NUM_RUNS); do
   echo "Running experiment $i..."
   output=$(./deploy_experiment.sh $FIRST_ARG $SERVER_IP)
+  if [ $? -ne 0 ]; then
+    echo "Experiment $i failed to run."
+    exit 1
+  fi
   echo "Experiment $i completed."
   
   cpu_chart=$(echo "$output" | head -n -1)
