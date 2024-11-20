@@ -32,10 +32,10 @@ echo -e "\nNumbers grid:"
 echo -e "$numbers" | xargs -n $NUM_RUNS
 
 # Process and print CPU utilization values
-cores=$(echo -e "$cpu_data" | grep -oP '^[0-9]+' | sort -u)
+# cores=$(echo -e "$cpu_data" | grep -oP '^[0-9]+' | sort -u)
 metrics=("idle" "soft" "sys" "usr")
 
-for core in $cores; do
+for core in {0..3}; do
   for metric in "${metrics[@]}"; do
     values=$(echo -e "$cpu_data" | grep -P "^$core\s" | awk -v metric="$metric" '{if (metric == "idle") print $12; else if (metric == "soft") print $10; else if (metric == "sys") print $8; else if (metric == "usr") print $4;}')
     echo "Core $core $metric: $values"
