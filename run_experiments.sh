@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SERVER_IP=$2
-NUM_RUNS=2
+NUM_RUNS=20
 FIRST_ARG=$1
 
 cpu_charts=""
