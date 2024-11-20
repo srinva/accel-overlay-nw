@@ -20,7 +20,8 @@ for i in $(seq 1 $NUM_RUNS); do
   
   cpu_chart=$(echo "$output" | head -n -${FIRST_ARG})
   number=$(echo "$output" | tail -n ${FIRST_ARG})
-  
+  echo "$number"
+
   cpu_charts="${cpu_charts}${cpu_chart}\n\n"
   numbers="${numbers}${number} "
   
@@ -37,7 +38,8 @@ metrics=("idle" "soft" "sys" "usr")
 
 for core in {0..3}; do
   for metric in "${metrics[@]}"; do
-    values=$(echo -e "$cpu_data" | grep -P "^$core\s" | awk -v metric="$metric" '{if (metric == "idle") print $12; else if (metric == "soft") print $10; else if (metric == "sys") print $8; else if (metric == "usr") print $4;}')
-    echo "Core $core $metric: $values"
+    # echo "$cpu_data"
+    values=$(echo -e "$cpu_charts" | grep "Average:       $core" | awk -v metric="$metric" '{if (metric == "idle") print $12; else if (metric == "soft") print $8; else if (metric == "sys") print $5; else if (metric == "usr") print $3;}')
+    echo -e "Core $core $metric: \n$values"
   done
 done
