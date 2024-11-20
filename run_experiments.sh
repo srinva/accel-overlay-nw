@@ -16,6 +16,7 @@ for i in $(seq 1 $NUM_RUNS); do
     exit 1
   fi
   echo "Experiment $i completed."
+  sleep 5
   
   cpu_chart=$(echo "$output" | head -n -1)
   number=$(echo "$output" | tail -n 1)
