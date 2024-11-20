@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 SERVER_IP=$2
@@ -13,8 +12,8 @@ for i in $(seq 1 $NUM_RUNS); do
   cpu_chart=$(echo "$output" | head -n -1)
   number=$(echo "$output" | tail -n 1)
   
-  cpu_charts+="$cpu_chart\n\n"
-  numbers+="$number "
+  cpu_charts="${cpu_charts}${cpu_chart}\n\n"
+  numbers="${numbers}${number} "
 done
 
 echo -e "$cpu_charts"
