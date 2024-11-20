@@ -5,9 +5,9 @@ server2=$3
 
 set -e
 replicas=$1
-helm upgrade --install accel-overlay-nw-server ./server --set replicas=$replicas
-kubectl wait --for=condition=Ready pod -l type=server --timeout=300s
-helm upgrade --install accel-overlay-nw-client ./client --set replicas=$replicas
+helm upgrade --install accel-overlay-nw-server ./server --set replicas=$replicas > /dev/null 2>&1
+kubectl wait --for=condition=Ready pod -l type=server --timeout=300s > /dev/null 2>&1
+helm upgrade --install accel-overlay-nw-client ./client --set replicas=$replicas > /dev/null 2>&1
 # kubectl wait --for=condition=complete pod -l type=client --timeout=300s
 sleep 7
 ssh $server1 'mpstat -P ALL 1 > /tmp/mpstat_server1.log &'&   # Start mpstat in background
@@ -26,5 +26,5 @@ for i in $(seq 1 $replicas); do
   # kubectl logs iperf-client-$i | tail -n 5 | head -n 2
 done
 # cleanup
-helm uninstall accel-overlay-nw-client
-helm uninstall accel-overlay-nw-server
+helm uninstall accel-overlay-nw-client > /dev/null 2>&1
+helm uninstall accel-overlay-nw-server > /dev/null 2>&1
