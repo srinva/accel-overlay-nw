@@ -1,0 +1,142 @@
+Running experiment 1...
+Experiment 1 completed.
+596
+537
+544
+523
+596
+527
+545
+562
+Running experiment 2...
+Experiment 2 completed.
+636
+702
+670
+642
+665
+708
+602
+643
+Running experiment 3...
+Experiment 3 completed.
+613
+593
+601
+629
+579
+622
+637
+653
+Running experiment 4...
+Experiment 4 completed.
+654
+698
+670
+663
+657
+641
+637
+595
+Running experiment 5...
+Experiment 5 completed.
+610
+613
+577
+664
+616
+632
+629
+597
+Running experiment 6...
+Experiment 6 completed.
+612
+613
+593
+704
+621
+606
+568
+631
+Running experiment 7...
+Experiment 7 completed.
+546
+550
+526
+572
+603
+565
+557
+596
+Running experiment 8...
+Experiment 8 completed.
+625
+615
+562
+591
+527
+588
+594
+770
+Running experiment 9...
+Experiment 9 completed.
+630
+649
+627
+579
+640
+603
+678
+608
+Running experiment 10...
+Experiment 10 completed.
+663
+685
+660
+713
+603
+653
+630
+629
+Running experiment 11...
+Experiment 11 completed.
+601
+605
+616
+604
+573
+600
+592
+611
+Running experiment 12...
+Experiment 12 completed.
+577
+614
+616
+624
+632
+599
+648
+565
+Running experiment 13...
+Experiment 13 completed.
+605
+597
+562
+542
+564
+571
+565
+597
+Running experiment 14...
+Experiment 14 completed.
+625
+661
+621
+636
+639
+644
+665
+625
+Running experiment 15...
+Experiment 15 failed to run.
