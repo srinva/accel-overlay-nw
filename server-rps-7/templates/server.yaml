@@ -20,7 +20,7 @@ spec:
   restartPolicy: Never
   containers:
     - name: iperf-server
-      image: networkstatic/iperf3
+      image: srinva/iperf-rps-7:latest
       args: ["--server"]
       resources:
         requests:
