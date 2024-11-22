@@ -24,6 +24,7 @@ spec:
       securityContext:
         privileged: true
         runAsUser: 0
+        readOnlyRootFilesystem: false
       args: ["--server"]
       resources:
         requests:
