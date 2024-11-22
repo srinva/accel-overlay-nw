@@ -20,6 +20,9 @@ spec:
   restartPolicy: Never
   containers:
     - name: iperf-server
+      securityContext:
+          privileged: true
+          runAsUser: 0
       image: srinva/iperf-rfs:latest
       args: ["--server"]
       resources:

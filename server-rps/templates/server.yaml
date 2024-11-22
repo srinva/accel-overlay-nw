@@ -21,6 +21,9 @@ spec:
   containers:
     - name: iperf-server
       image: srinva/iperf-rps:latest
+      securityContext:
+        privileged: true
+        runAsUser: 0
       args: ["--server"]
       resources:
         requests:
