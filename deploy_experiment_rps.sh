@@ -5,7 +5,7 @@ server2=$3
 
 set -e
 replicas=$1
-helm upgrade --install accel-overlay-nw-server-rps ./server --set replicas=$replicas > /dev/null 2>&1
+helm upgrade --install accel-overlay-nw-server-rps ./server-rps --set replicas=$replicas > /dev/null 2>&1
 kubectl wait --for=condition=Ready pod -l type=server --timeout=300s > /dev/null 2>&1
 helm upgrade --install accel-overlay-nw-client ./client --set replicas=$replicas > /dev/null 2>&1
 # kubectl wait --for=condition=complete pod -l type=client --timeout=300s
