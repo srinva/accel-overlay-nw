@@ -24,6 +24,7 @@ spec:
       securityContext:
         privileged: true
         runAsUser: 0
+      imagePullPolicy: Always
       args: ["--server"]
       resources:
         requests:

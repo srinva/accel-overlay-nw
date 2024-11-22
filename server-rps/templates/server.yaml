@@ -24,7 +24,7 @@ spec:
       securityContext:
         privileged: true
         runAsUser: 0
-        readOnlyRootFilesystem: false
+      imagePullPolicy: Always
       args: ["--server"]
       resources:
         requests:
