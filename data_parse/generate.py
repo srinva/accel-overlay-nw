@@ -5,6 +5,15 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('finalized_bitrate.csv')
 confidence_df = pd.read_csv('confidence_bitrate.csv')
 
+# Filter out columns containing "RPS-7" or "RPS-7+"
+df = df.loc[:, ~df.columns.str.contains('RPS-7')]
+confidence_df = confidence_df.loc[:, ~confidence_df.columns.str.contains('RPS-7')]
+
+# Reorder the columns
+columns_order = ['Replicas', 'Baseline', 'RPS', 'RPS+', 'RFS', 'RFS+']
+df = df[columns_order]
+confidence_df = confidence_df[columns_order]
+
 # Set the 'Replicas' column as the index
 df.set_index('Replicas', inplace=True)
 confidence_df.set_index('Replicas', inplace=True)
@@ -57,7 +66,16 @@ for group in data_groups:
         df = pd.read_csv(f'finalized_{data}.csv')
         confidence_df = pd.read_csv(f'confidence_{data}.csv')
 
-        # Set the 'Replicas' column as the index
+        # Filter out rows containing "RPS-7" or "RPS-7+"
+        df = df[~df['Type'].str.contains('RPS-7')]
+        confidence_df = confidence_df[~confidence_df['Type'].str.contains('RPS-7')]
+
+        # Reorder the rows
+        rows_order = ['Baseline', 'RPS', 'RPS+', 'RFS', 'RFS+']
+        df = df.set_index('Type').reindex(rows_order).reset_index()
+        confidence_df = confidence_df.set_index('Type').reindex(rows_order).reset_index()
+
+        # Set the 'Type' column as the index
         df.set_index('Type', inplace=True)
         confidence_df.set_index('Type', inplace=True)
         df.plot(kind='bar', yerr=confidence_df.values.T, ax=ax, capsize=4, width=0.9, edgecolor='black', linewidth=2)
@@ -83,10 +101,10 @@ for group in data_groups:
         ax.set_xticklabels(ax.get_xticklabels(), rotation=45, fontsize=30)
         ax.tick_params(axis='y', labelsize=30)
 
-    axes[0].annotate('a)', xy=(0.5, -0.5), xycoords='axes fraction', fontsize=28, ha='center')
-    axes[1].annotate('b)', xy=(0.5, -0.5), xycoords='axes fraction', fontsize=28, ha='center')
+    axes[0].annotate('(a) 1 Replica', xy=(0.5, -0.5), xycoords='axes fraction', fontsize=28, ha='center')
+    axes[1].annotate('(b) 16 Replicas', xy=(0.5, -0.5), xycoords='axes fraction', fontsize=28, ha='center')
 
-    plt.tight_layout()
+    plt.tight_layout(pad=2.0)
     plt.savefig(f'{group[0]}_{group[1]}.png')
 
     plt.clf()
